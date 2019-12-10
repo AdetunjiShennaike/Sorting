@@ -19,9 +19,11 @@ def selection_sort( arr ):
       else:
         count += 1
     # TO-DO: swap
-    temp = arr[cur_index]
-    arr[cur_index] = smallNum
-    arr[smallest_index] = temp
+    # New way to swap items with just 1 line 1,2 = 2,1
+    arr[cur_index],arr[smallest_index] = arr[smallest_index],arr[cur_index]
+    # temp = arr[cur_index]
+    # arr[cur_index] = smallNum
+    # arr[smallest_index] = temp
   return arr
 
 
