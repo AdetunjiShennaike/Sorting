@@ -36,7 +36,6 @@ def merge_sort( arr ):
 def merge_in_place(arr, start, mid, end):
     # TO-DO
     start2 = mid + 1
-    i = 0
     while start <= mid and start2 <= end:
       if arr[start] <= arr[start2]:
         start += 1
