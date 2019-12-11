@@ -27,7 +27,7 @@ def merge_sort( arr ):
       half = int(len(arr)/2)
       arrA = merge_sort(arr[0:half])
       arrB = merge_sort(arr[half:len(arr)])
-      arr = merge(arrA, arrB)
+      return merge(arrA, arrB)
 
     return arr
 
@@ -35,12 +35,31 @@ def merge_sort( arr ):
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
     # TO-DO
-
+    start2 = mid + 1
+    i = 0
+    while start <= mid and start2 <= end:
+      if arr[start] <= arr[start2]:
+        start += 1
+      else:
+        secondItem = arr[start2]
+        index = start2
+        
+        while index != start:
+          arr[index] = arr[index - 1]
+          index -= 1
+        arr[start] = secondItem 
+        start += 1
+        mid += 1
+        start2 += 1
     return arr
 
 def merge_sort_in_place(arr, l, r): 
     # TO-DO
-
+    if l < r:
+      half = int(l + (r-l)/2)
+      merge_sort_in_place(arr, l, half)
+      merge_sort_in_place(arr, half + 1, r)
+      return merge_in_place(arr, l, half, r)
     return arr
 
 
